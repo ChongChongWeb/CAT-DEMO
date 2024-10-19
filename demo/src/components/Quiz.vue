@@ -39,7 +39,7 @@ export default {
         {
           question: '如果你有一個“人工智能”助手，它可以幫助你做什麼？',
           options: ['為你開門', '顯示時間和天氣', '人臉識別', '簡單的數字計算'],
-          correctAnswer: 'D',
+          correctAnswer: 'A',
           concept: 1,
           image: image1
         },
