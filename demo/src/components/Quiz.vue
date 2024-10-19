@@ -1,8 +1,9 @@
 <template>
   <div class="quiz-container">
-    <h2 class="quiz-title">AI素养测试题</h2>
+    <h2 class="quiz-title">AI素養測試</h2>
     <div class="quiz-question">
       <!-- 显示题目图片（除了第三题） -->
+      <h3 class="concept-title">{{ getConceptTitle() }}</h3>
       <img
         v-if="currentQuestion.image"
         :src="currentQuestion.image"
@@ -24,11 +25,11 @@
 </template>
 
 <script>
-import image1 from '../assets/img/26173.jpg'
-import image2 from '../assets/img/26173.jpg'
-import image3 from '../assets/img/26173.jpg'
-import image4 from '../assets/img/26173.jpg'
-import image5 from '../assets/img/26173.jpg'
+import image1 from '../assets/img/q1.png'
+import image2 from '../assets/img/q2.png'
+import image3 from '../assets/img/q3.png'
+import image4 from '../assets/img/q4.png'
+import image5 from '../assets/img/q5.png'
 
 export default {
   data() {
@@ -36,44 +37,61 @@ export default {
       questions: [
         // 概念1的题目
         {
-          question: '1. 请看图片，选择正确的描述。',
-          options: ['描述A', '描述B', '描述C', '描述D'],
+          question: '如果你有一個“人工智能”助手，它可以幫助你做什麼？',
+          options: ['為你開門', '顯示時間和天氣', '人臉識別', '簡單的數字計算'],
           correctAnswer: 'D',
           concept: 1,
           image: image1
         },
         {
-          question: '2. 请看图片，选择正确的操作。',
-          options: ['操作A', '操作B', '操作C', '操作D'],
+          question: '哪項任務更像是「專家型」人工智能，而非「多面手」人工智能？',
+          options: [
+            '一個能解決不同類型問題的人工智能客服',
+            '專門設計來辨識面孔的人工智能',
+            '一個能夠寫詩和小說的人工智能',
+            '一個既能駕駛汽車又能处理会议的人工智能'
+          ],
           correctAnswer: 'B',
           concept: 1,
           image: image2
         },
         {
-          question: '3. 这道题不显示图片，请选择正确选项。',
-          options: ['选项A', '选项B', '选项C', '选项D'],
+          question:
+            '在安全監控系統中使用人臉識別技術時，為了提高識別準確率，以下哪一項技術做法最為有效？',
+          options: [
+            '增加訓練數據集中的人臉樣本多樣性，包括不同年齡、性別和種族的樣本',
+            '提高攝像頭的分辨率，確保能夠捕捉到更清晰的影像',
+            '將人臉識別算法與其他生物特徵識別（如指紋或虹膜）結合，以增強識別準確度',
+            '以上皆是'
+          ],
           correctAnswer: 'D',
           concept: 1,
           image: null // 无图片
         },
         // 概念2的题目
         {
-          question: '4. 请看图片，选择正确答案。',
-          options: ['答案A', '答案B', '答案C', '答案D'],
-          correctAnswer: 'C',
+          question: '以下問題中，哪個最適合出現在「？」橢圓處？',
+          options: ['它是甜的嗎？', '它是長的嗎？', '它是綠色的嗎？', '它有果皮嗎？'],
+          correctAnswer: 'A',
           concept: 2,
           image: image3
         },
         {
-          question: '5. 请看图片，选择正确描述。',
-          options: ['答案A', '答案B', '答案C', '答案D'],
+          question: '如果使用這個決策樹來分類荔枝，它應該屬於哪一個分支？',
+          options: ['', '', '', ''],
           correctAnswer: 'A',
           concept: 2,
           image: image4
         },
         {
-          question: '6. 最后一题，请看图片选择正确选项。',
-          options: ['选项A', '选项B', '选项C', '选项D'],
+          question:
+            '根捕現有决策樹，荔枝會被誤分為百香果。為了更準確地將荔枝分類，应该采用一下哪種方法？',
+          options: [
+            '增加一個判斷“是否有果核”的分支。',
+            '將“百香果”分支改成“其他水果”。',
+            '重新訓練決策樹，加入更多水果的樣本，尤其是荔枝的樣本。',
+            '以上皆非'
+          ],
           correctAnswer: 'C',
           concept: 2,
           image: image5
@@ -89,6 +107,17 @@ export default {
     }
   },
   methods: {
+    getConceptTitle() {
+      const conceptTitles = [
+        '概念一：什麼是人工智能',
+        '概念一：什麼是人工智能',
+        '概念一：什麼是人工智能',
+        '概念二：機器學習算法理解',
+        '概念二：機器學習算法理解',
+        '概念二：機器學習算法理解'
+      ]
+      return conceptTitles[this.currentQuestionIndex]
+    },
     submitAnswer() {
       const correctAnswer = this.currentQuestion.correctAnswer
 
@@ -135,13 +164,20 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 600px;
   margin: auto;
-  transform: translateY(15%);
+  transform: translateY(5%); /* 向上移动表单 */
 }
 
 .quiz-title {
   font-size: 28px;
   margin-bottom: 20px;
   color: #343a40;
+  text-align: center;
+}
+
+.concept-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #555;
   text-align: center;
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="form-container">
-    <h2 class="form-title">AI素养测试系统demo</h2>
+    <h2 class="form-title">AI素養測試系統demo</h2>
     <div class="form-group">
       <label for="name">姓名:</label>
       <input type="text" id="name" v-model="name" @input="validateName" required />
@@ -9,12 +9,12 @@
     </div>
 
     <div class="form-group">
-      <label for="age">年龄:</label>
+      <label for="age">年齡:</label>
       <input type="number" id="age" v-model="age" :min="6" required />
       <!-- 设置年龄的最小值为6 -->
     </div>
 
-    <button class="submit-btn" @click="startQuiz">开始答题</button>
+    <button class="submit-btn" @click="startQuiz">開始答題</button>
   </div>
 </template>
 
@@ -32,7 +32,7 @@ export default {
     validateName() {
       const nameRegex = /^[\u4e00-\u9fa5a-zA-Z]+$/ // 允许中文、英文，禁止数字
       if (!nameRegex.test(this.name)) {
-        this.nameError = '姓名只能包含非数字的英文或中文'
+        this.nameError = '姓名只能包含非數字的英文或中文'
       } else {
         this.nameError = '' // 如果验证通过，清除错误消息
       }
@@ -44,7 +44,7 @@ export default {
       if (this.name && this.age >= 6 && !this.nameError) {
         this.$router.push('/quiz') // 跳转到quiz页面
       } else {
-        alert('请填写完整且有效的信息！')
+        alert('請填寫完整且有效的資訊！')
       }
     }
   }

@@ -1,17 +1,15 @@
 <template>
   <div class="result-container">
-    <h2>测试系统后台模拟Demo</h2>
-    <p>数据分析模块模拟Demo</p>
+    <h2>測試系統後台模擬Demo</h2>
     <div class="image-container">
       <!-- 第一个图片 -->
       <div class="image-box">
         <img :src="image1" alt="Image 1" class="result-image" />
-        <p class="image-caption">学生能力测试进度</p>
+        <p class="image-caption">學生能力測試進度</p>
       </div>
       <!-- 第二个图片 -->
       <div class="image-box">
         <img :src="image2" alt="Image 2" class="result-image" />
-        <p class="image-caption">系统数据变化过程</p>
       </div>
     </div>
   </div>
@@ -55,10 +53,13 @@ export default {
   color: white; /* 说明文字颜色改为白色 */
 }
 
+/* 修改图片容器为上下排列 */
 .image-container {
   display: flex;
+  flex-direction: column; /* 改为上下排列 */
   justify-content: center;
-  gap: 20px; /* 图片之间的间距调整为20px */
+  align-items: center;
+  gap: 40px; /* 图片之间的间距调整为40px */
 }
 
 /* 为图片和说明的容器设置样式 */
@@ -69,7 +70,7 @@ export default {
 }
 
 .result-image {
-  width: 600px; /* 调整图片宽度 */
+  width: 800px; /* 调整图片宽度，使图片变大 */
   height: auto;
   border-radius: 10px;
 }
