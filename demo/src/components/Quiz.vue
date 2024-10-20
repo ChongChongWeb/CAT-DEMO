@@ -186,6 +186,10 @@ export default {
   margin-bottom: 20px;
 }
 
+.quiz-question p {
+  font-weight: bold; /* 加粗题干字体 */
+}
+
 .question-image {
   max-width: 100%;
   height: auto;
